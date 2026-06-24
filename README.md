@@ -5,6 +5,10 @@ desired prefix and/or suffix, it searches for a private key whose derived
 address matches. Everything is local and deterministic — no network, no
 server, no global state.
 
+**Live tool:** https://yulaika.com/tools/vanity-address/ — the full
+browser-based generator (all chains, 8 languages, WebGPU acceleration) built on
+this core.
+
 This repository contains **only the core crate** (`src/`). It is meant to be
 read, audited, and built on — not a turnkey product. There is no UI, no build
 of a website, and no precompiled binary; you wire it into your own front end
