@@ -1,0 +1,36 @@
+[package]
+name = "vanity"
+version = "0.1.0"
+edition = "2021"
+description = "Offline vanity address generator core (ETH), compiled to WebAssembly"
+license = "MIT"
+repository = "https://github.com/ggggghhhhyyyy/beautiful-address"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+k256 = { version = "0.13", default-features = false, features = ["arithmetic", "expose-field"] }
+tiny-keccak = { version = "2", features = ["keccak"] }
+getrandom = { version = "0.2", features = ["js"] }
+sha2 = { version = "0.10", default-features = false }
+ripemd = { version = "0.1", default-features = false }
+blake2 = { version = "0.10", default-features = false }
+bip39 = { version = "2", default-features = false, features = ["alloc"] }
+hmac = "0.12"
+bs58 = { version = "0.5", default-features = false, features = ["alloc", "check"] }
+bech32 = { version = "0.11", default-features = false, features = ["alloc"] }
+ed25519-dalek = { version = "2", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+# binaryen's wasm-opt is downloaded from GitHub at build time, which is not
+# always reachable. The build already enables full LTO + opt-level 3, so skip
+# the extra pass to keep the build hermetic.
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
