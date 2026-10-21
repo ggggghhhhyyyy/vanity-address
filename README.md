@@ -1,5 +1,7 @@
 # vanity — crypto vanity address generator core
 
+[![Follow us on X](https://img.shields.io/badge/Follow%20us%20on%20X-%40mollycoddle330-000000?logo=x)](https://x.com/mollycoddle330)
+
 The Rust cryptographic core of an offline vanity address generator: given a
 desired prefix and/or suffix, it searches for a private key whose derived
 address matches. Everything is local and deterministic — no network, no
@@ -7,7 +9,7 @@ server, no global state.
 
 **Live tool:** https://yulaika.com/tools/vanity-address/ — the full
 browser-based generator (all chains, 8 languages, WebGPU acceleration) built on
-this core.
+this core. Follow us on X: [@mollycoddle330](https://x.com/mollycoddle330)
 
 This repository contains **only the core crate** (`src/`). It is meant to be
 read, audited, and built on — not a turnkey product. There is no UI, no build
